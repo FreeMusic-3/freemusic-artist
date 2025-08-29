@@ -1,5 +1,5 @@
 create_artist_table = """
-CREATE TABLE artist (
+CREATE TABLE artists (
     id SERIAL PRIMARY KEY,
     account_id INT NOT NULL,
     avatar_fid TEXT,
@@ -9,7 +9,7 @@ CREATE TABLE artist (
 );
 """
 create_album_table = """
-CREATE TABLE album (
+CREATE TABLE albums (
     id SERIAL PRIMARY KEY,
     artist_id INT NOT NULL,
     cover_fid TEXT,
@@ -21,7 +21,7 @@ CREATE TABLE album (
 );
 """
 create_track_table = """
-CREATE TABLE track (
+CREATE TABLE tracks (
     id SERIAL PRIMARY KEY,
     track_fid TEXT NOT NULL,
     album_id INT NOT NULL,
@@ -33,10 +33,11 @@ CREATE TABLE track (
 );
 """
 create_listening_table = """
-CREATE TABLE listening (
+CREATE TABLE listenings (
+    id SERIAL PRIMARY KEY,
     listener_id INT NOT NULL,
     artist_id INT NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW(),
-    PRIMARY KEY (listener_id, artist_id, created_at)
+    created_at TIMESTAMP DEFAULT NOW()
 );
 """
+
