@@ -8,55 +8,7 @@ from opentelemetry.trace import Tracer
 from weed.util import WeedOperationResponse
 
 
-class IOtelLogger(Protocol):
-    @abstractmethod
-    def debug(self, message: str, fields: dict = None) -> None:
-        pass
 
-    @abstractmethod
-    def info(self, message: str, fields: dict = None) -> None:
-        pass
-
-    @abstractmethod
-    def warning(self, message: str, fields: dict = None) -> None:
-        pass
-
-    @abstractmethod
-    def error(self, message: str, fields: dict = None) -> None:
-        pass
-
-
-class ITelemetry(Protocol):
-    @abstractmethod
-    def tracer(self) -> Tracer:
-        pass
-
-    @abstractmethod
-    def meter(self) -> Meter:
-        pass
-
-    @abstractmethod
-    def logger(self) -> IOtelLogger:
-        pass
-
-
-class IHttpMiddleware(Protocol):
-    @abstractmethod
-    def trace_middleware01(self, app: FastAPI): pass
-
-    @abstractmethod
-    def metrics_middleware02(self, app: FastAPI): pass
-
-    @abstractmethod
-    def logger_middleware03(self, app: FastAPI): pass
-
-
-class IRedis(Protocol):
-    @abstractmethod
-    async def set(self, key: str, value: Any, ttl: int = None) -> bool: pass
-
-    @abstractmethod
-    async def get(self, key: str, default: Any = None) -> Any: pass
 
 class IStorage(Protocol):
     @abstractmethod

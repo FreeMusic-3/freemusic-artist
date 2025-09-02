@@ -55,7 +55,7 @@ class IArtistService(Protocol):
     async def edit_name(self, artist_id: int, name: str) -> None: pass
 
     @abstractmethod
-    async def edit_avatar(self, account_id: int, avatar_file: UploadFile) -> None: pass
+    async def edit_avatar(self, artist_id: int, avatar_file: UploadFile) -> None: pass
 
     @abstractmethod
     async def edit_description(self, artist_id: int, description: str) -> None: pass
@@ -90,7 +90,7 @@ class IArtistRepo(Protocol):
     async def edit_name(self, artist_id: int, name: str) -> None: pass
 
     @abstractmethod
-    async def edit_avatar(self, account_id: int, avatar_fid: str) -> None: pass
+    async def edit_avatar(self, artist_id: int, avatar_fid: str) -> None: pass
 
     @abstractmethod
     async def edit_description(self, artist_id: int, description: str) -> None: pass

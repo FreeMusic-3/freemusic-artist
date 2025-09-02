@@ -30,9 +30,9 @@ class ArtistRepo(interface.IArtistRepo):
         }
         await self.db.update(edit_name, args)
 
-    async def edit_avatar(self, account_id: int, avatar_fid: str) -> None:
+    async def edit_avatar(self, artist_id: int, avatar_fid: str) -> None:
         args = {
-            "account_id": account_id,
+            "artist_id": artist_id,
             "avatar_fid": avatar_fid
         }
         await self.db.update(edit_avatar, args)
